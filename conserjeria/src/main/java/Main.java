@@ -11,19 +11,22 @@ import io.javalin.Javalin;
 public class Main {
 
     public static void main(String[] args){
-        log.debug("Iniciando el sistema...");
+        log.debug("starting Main with library path: {}", system.getProperty("java.library.path"));
+        log debug("starting ApiRest server ..");
+        javalin app = apiRestServer.start(7070, new webController());
 
-        log.debug("Library path : {}", System.getProperty("java.library.path"));
+        log.debug("starting the gRPC server...");
+        Server server = ServerBuilder
+                .forPort(50123)
+                .addService(newPersonaGrpcServiceImpl())
+                .build();
+        server.start();
 
-        //Start the API Rest Server
-        Javalin app = ApiRestServer.start(7070,new WebController());
+        Runtime.getRuntime().addShutDownHook(new Thread(server::shutdown));
 
-        log.debug("Sistema deteniendose...");
+        server.awaitTermination();
 
-        app.stop();
-
-        log.debug("Sistema finalizado...");
-
+        log.debug("Done. :)");
 
     }
 }
