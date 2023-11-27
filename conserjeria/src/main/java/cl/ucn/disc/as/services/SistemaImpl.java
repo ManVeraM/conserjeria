@@ -13,6 +13,17 @@ import io.ebean.Database;
 import io.ebean.PersistenceIOException;
 import io.ebean.annotation.NotNull;
 import lombok.extern.slf4j.Slf4j;
+import com.github.javafaker.Faker;
+import com.github.javafaker.service.FakeValues;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
+import javax.persistence.PersistenceException;
+import java.time.Instant;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
+
+
 /**
  * Sistema implementation
  *
@@ -140,4 +151,42 @@ public class SistemaImpl implements Sistema {
             throw new SistemaException("Error al obtener pagos",ex);
         }
     }
+
+    @Override
+    public Optional<Persona> getPersona(String rut) {
+        Persona persona = database.find(Persona.class)
+                .where()
+                .eq("rut", rut)
+                .findOne();
+
+        return Optional.ofNullable(persona);
+    }
+
+    @Override
+    public void populate() {
+        {
+            Persona persona = Persona.builder()
+                    .rut("19952649-9")
+                    .nombre("Manuel Alejandro")
+                    .apellidos("Vera Martinez")
+                    .email("manveram@outlook.com")
+                    .telefono("978934390")
+                    .build();
+            this.database.save(persona);
+        }
+
+        Locale locale = new Locale("es-CL");
+        FakeValuesService fvs = new FakeValuesService(locale, new RandomService());
+        Faker faker = new Faker(locale);
+
+        for (int i = 0; i < 1000; i++) {
+            Persona persona = Persona.builder()
+                    .rut(fvs.bothify("#######-#"))
+                    .nombre(faker.name().firstName())
+                    .apellidos(faker.name().lastName())
+                    .email(fvs.bothify("???###@gmail.com"))
+                    .telefono(fvs.bothify("+569########"))
+                    .build();
+            this.database.save(persona);
+        }
 }

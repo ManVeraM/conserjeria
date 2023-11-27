@@ -5,26 +5,24 @@ import cl.ucn.disc.as.services.Sistema;
 import io.ebean.DB;
 import io.ebean.Database;
 import lombok.extern.slf4j.Slf4j;
+import io.javalin.Javalin;
 
 @Slf4j
-public final class Main {
+public class Main {
 
     public static void main(String[] args){
-        Database db = DB.getDefault();
+        log.debug("Iniciando el sistema...");
 
-        Sistema sistema = new SistemaImpl((db));
+        log.debug("Library path : {}", System.getProperty("java.library.path"));
 
-        Edificio edificio = Edificio.builder()
-                .nombre("y1")
-                .dirección("ssss 145")
-                .numero_pisos(12)
-                .build();
-        log.debug("edificio before db: {}", edificio);
+        //Start the API Rest Server
+        Javalin app = ApiRestServer.start(7070,new WebController());
 
-        edificio = sistema.agregar(edificio);
-        log.debug("edificio after db: {}", edificio);
+        log.debug("Sistema deteniendose...");
 
+        app.stop();
 
+        log.debug("Sistema finalizado...");
 
 
     }

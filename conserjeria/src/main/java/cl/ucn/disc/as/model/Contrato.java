@@ -31,6 +31,35 @@ public class Contrato extends BaseModel{
     @Setter
     private Instant fechaPago;
 
+    public Contrato(Instant fechaPago, Persona persona, Departamento departamento) {
+        this.fechaPago = fechaPago;
+        this.persona = persona;
+        this.departamento = departamento;
+    }
+
+    public Instant getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(Instant fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
 
     /**
      * The persona.

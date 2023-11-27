@@ -24,6 +24,35 @@ public class Departamento extends BaseModel {
     @Setter
     private Integer numero;
 
+    public Departamento(Integer numero, String piso, Edificio edificio) {
+        this.numero = numero;
+        this.piso = piso;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public String getPiso() {
+        return piso;
+    }
+
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
+
+    public Edificio getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(Edificio edificio) {
+        this.edificio = edificio;
+    }
+
     /**
      * The Piso.
      */

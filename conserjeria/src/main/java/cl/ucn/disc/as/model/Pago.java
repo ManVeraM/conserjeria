@@ -37,5 +37,24 @@ public class Pago extends BaseModel{
     @Setter
     private Instant fechaPago;
 
-    
+    public Pago(Integer monto, Instant fechaPago) {
+        Monto = monto;
+        this.fechaPago = fechaPago;
+    }
+
+    public Integer getMonto() {
+        return Monto;
+    }
+
+    public void setMonto(Integer monto) {
+        Monto = monto;
+    }
+
+    public Instant getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(Instant fechaPago) {
+        this.fechaPago = fechaPago;
+    }
 }

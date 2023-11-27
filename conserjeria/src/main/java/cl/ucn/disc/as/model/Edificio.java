@@ -30,5 +30,33 @@ public class Edificio extends BaseModel {
     @NotNull
     private Integer numero_pisos;
 
+    public Edificio(String nombre, String dirección) {
+        this.nombre = nombre;
+        this.dirección = dirección;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDirección() {
+        return dirección;
+    }
+
+    public void setDirección(String dirección) {
+        this.dirección = dirección;
+    }
+
+    public Integer getNumero_pisos() {
+        return numero_pisos;
+    }
+
+    public void setNumero_pisos(Integer numero_pisos) {
+        this.numero_pisos = numero_pisos;
+    }
 }
 
