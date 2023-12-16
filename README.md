@@ -3,15 +3,22 @@
 Para clonar el repositorio, puedes usar el siguiente comando en tu terminal:
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/ManVeraM/conserjeria
 ```
+
+Para crear las imagenes, debes usar el siguiente comando en tu terminal:
+
+```bash
+docker-compose up -d 
+```
+
 ### Abrir DOCKERHUB DESKTOP
 
 Abrir la seeccion de contenedores o ingresar en el navegador alguna de las siguientes direcciones:
 
 ```
-http://localhost:7070/ 
-http://localhost:7070/ 
+http://localhost:7070/  para la conexion con sqlite
+http://localhost:7071/  para la conexion con mariadb
 ```
 
 ### Direcciones
