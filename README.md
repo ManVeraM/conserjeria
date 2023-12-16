@@ -22,14 +22,13 @@ http://localhost:7071/  para la conexion con mariadb
 ```
 
 ### Direcciones
-
 ```
 http://localhost:7070/ 
 http://localhost:7070/api/personas
 http://localhost:7070/persona/rut/{rut}
 ```
 ```
-http://localhost:7071/ -> API
-http://localhost:7071/personas/ -> GET ALL PERSONAS
-http://localhost:7071/persona/rut/{rut} -> GET PERSONA BY RUT
+http://localhost:7071/
+http://localhost:7071/personas
+http://localhost:7071/persona/rut/{rut}
 ```
