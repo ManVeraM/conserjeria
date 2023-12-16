@@ -140,14 +140,14 @@ idea {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'cl.ucn.disc.as.main'
+                'Main-Class': 'cl.ucn.disc.as.Main'
         )
     }
 }
 shadowJar {
     archiveClassifier.set('')
     manifest {
-        attributes 'Main-Class': 'cl.ucn.disc.as.main'
+        attributes 'Main-Class': 'cl.ucn.disc.as.Main'
     }
     mergeServiceFiles {
         include 'META-INF/services/io.grpc.LoadBalancerProvider'

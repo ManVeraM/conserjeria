@@ -1,4 +1,4 @@
-FROM gradle:8.2-jdk17 AS build
+FROM gradle:8.3-jdk17 AS build
 WORKDIR /usr/app
 COPY . .
 RUN gradle shadowJar --no-daemon
