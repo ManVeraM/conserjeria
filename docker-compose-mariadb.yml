@@ -5,10 +5,10 @@ services:
     image: mariadb:10.5
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: MveraM99
+      MYSQL_ROOT_PASSWORD: Jaidefinichon1
       MYSQL_DATABASE: conserjeria
       MYSQL_USER: root
-      MYSQL_PASSWORD: MveraM99
+      MYSQL_PASSWORD: Jaidefinichon1
     ports:
       - "3306:3306"
     volumes:
@@ -24,7 +24,7 @@ services:
       - "7071:7070"
     environment:
       DB_USERNAME: root
-      DB_PASSWORD: MveraM99
+      DB_PASSWORD: Jaidefinichon1
       DB_PLATFORM: mysql
       DB_DDL_MODE: dropCreate
       DB_NAME: conserjeria
