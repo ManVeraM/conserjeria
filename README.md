@@ -9,8 +9,12 @@ git clone https://github.com/ManVeraM/conserjeria
 Para crear las imagenes, debes usar el siguiente comando en tu terminal:
 
 ```bash
-docker-compose up -d 
+docker-compose up -d
 ```
+```bash
+docker-compose -f docker-compose-mariadb.yml up -d
+```
+
 
 ### Abrir DOCKERHUB DESKTOP
 
